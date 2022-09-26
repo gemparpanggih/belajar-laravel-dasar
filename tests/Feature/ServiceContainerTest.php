@@ -23,39 +23,39 @@ class ServiceContainerTest extends TestCase
 
     public function testBind(){
         $this->app->bind(Person::class, function($app){
-            return new Person("Anton", "Prafanto");
+            return new Person("Gempar", "Panggih");
         });
 
         $person1 = $this->app->make(Person::class);//closure()//new Person()
         $person2 = $this->app->make(Person::class);//closure()//new Person()
 
-        self::assertEquals("Anton", $person1->firstName);
-        self::assertEquals("Anton", $person2->firstName);
+        self::assertEquals("Gempar", $person1->firstName);
+        self::assertEquals("Gempar", $person2->firstName);
         self::assertNotSame($person1, $person2);
     }
 
     public function testSingleton(){
         $this->app->singleton(Person::class, function($app){
-            return new Person("Anton", "Prafanto");
+            return new Person("Gempar", "Panggih");
         });
 
         $person1 = $this->app->make(Person::class);//new Person(); if not exists
         $person2 = $this->app->make(Person::class);//return existing
 
-        self::assertEquals("Anton", $person1->firstName);
-        self::assertEquals("Anton", $person2->firstName);
+        self::assertEquals("Gempar", $person1->firstName);
+        self::assertEquals("Gempar", $person2->firstName);
         self::assertSame($person1, $person2);
     }
 
     public function testInstance(){
-        $person = new Person("Anton", "Prafanto");
+        $person = new Person("Gempar", "Panggih");
         $this->app->instance(Person::class, $person);
 
         $person1 = $this->app->make(Person::class);//$person
         $person2 = $this->app->make(Person::class);//$person
 
-        self::assertEquals("Anton", $person1->firstName);
-        self::assertEquals("Anton", $person2->firstName);
+        self::assertEquals("Gempar", $person1->firstName);
+        self::assertEquals("Gempar", $person2->firstName);
         self::assertSame($person1, $person2);
     }
 
@@ -93,6 +93,6 @@ class ServiceContainerTest extends TestCase
         $this->app->singleton(HelloService::class, HelloServiceIndonesia::class);
 
         $helloService = $this->app->make(HelloService::class);
-        self::assertEquals("Halo Anton", $helloService->hello("Anton"));
+        self::assertEquals("Halo Gempar", $helloService->hello("Gempar"));
     }
 }

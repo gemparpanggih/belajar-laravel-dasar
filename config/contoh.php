@@ -2,9 +2,9 @@
 
 return [
     "author" => [
-        "first" => "Anton",
-        "last" => "Prafanto"
+        "first" => "Gempar",
+        "last" => "Panggih"
     ],
-    "email" => "anton.prafanto@gmail.com",
+    "email" => "gemparpanggih@gmail.com",
     "web" => "kodingindonesia.com"
 ];

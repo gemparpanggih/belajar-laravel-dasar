@@ -14,9 +14,9 @@ class ConfigTest extends TestCase
         $email = config("contoh.email");
         $web = config("contoh.web");
 
-        self::assertEquals("Anton", $firstName);
-        self::assertEquals("Prafanto", $lastName);
-        self::assertEquals("anton.prafanto@gmail.com", $email);
+        self::assertEquals("Gempar", $firstName);
+        self::assertEquals("Panggih", $lastName);
+        self::assertEquals("gemparpanggih@gmail.com", $email);
         self::assertEquals("kodingindonesia.com", $web);
     }
 
